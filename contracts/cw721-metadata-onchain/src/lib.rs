@@ -4,25 +4,20 @@ use serde::{Deserialize, Serialize};
 use cosmwasm_std::Empty;
 pub use cw721_base::{ContractError, InstantiateMsg, MintMsg, MinterResponse, QueryMsg};
 
-#[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug, Default)]
-pub struct Trait {
-    pub display_type: Option<String>,
-    pub trait_type: String,
-    pub value: String,
-}
-
 // see: https://docs.opensea.io/docs/metadata-standards
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug, Default)]
 pub struct Metadata {
-    pub image: Option<String>,
-    pub image_data: Option<String>,
-    pub external_url: Option<String>,
-    pub description: Option<String>,
     pub name: Option<String>,
-    pub attributes: Option<Vec<Trait>>,
-    pub background_color: Option<String>,
-    pub animation_url: Option<String>,
-    pub youtube_url: Option<String>,
+    pub image_url: Option<String>,
+    pub desc: Option<String>,
+    pub quantity_issued: Option<i32>,
+    pub expired_date: Option<String>,
+    pub duration: Option<i32>,
+    pub nft_type: Option<String>,
+    pub career: Option<String>,
+    pub course_type: Option<String>,
+    pub creator: Option<String>,
+    pub owner: Option<String>,
 }
 
 pub type Extension = Option<Metadata>;
